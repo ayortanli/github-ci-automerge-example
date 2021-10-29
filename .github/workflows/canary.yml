@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - canary
+  workflow_run:
+    workflows: ["main"]
+    types:
+      - completed
 jobs:  
   build:
     name: Build after checkout 
@@ -13,6 +17,6 @@ jobs:
     - name: Build
       run: echo 'Building... blah blah...'
       shell: bash      
-    - name: Build
+    - name: Deploy
       run: echo 'Deploying... blah blah...'
       shell: bash
