@@ -1,4 +1,4 @@
-name: main
+name: canary
 on:
   push:
     branches:
