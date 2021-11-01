@@ -19,8 +19,7 @@ jobs:
         ref: main    
     - name: Checkout Canary and Merge Master to it
       run: |
-        git branch --list --remote origin/canary
-        git checkout --progress --force -B canary origin/canary
+        git checkout canary
         git merge main
         git commit -m "automerging main to canary"
         git push
