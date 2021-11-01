@@ -21,10 +21,8 @@ jobs:
       run: |       
         git config user.name github-actions
         git config user.email github-actions@github.com       
-        echo "clone"
-        git clone https://github.com/ayortanli/github-ci-automerge-example
-        echo "change path"
-        cd github-ci-automerge-example
+        echo "ls"
+        ls
         echo "fetch"
         git fetch
         echo "checkout main"
