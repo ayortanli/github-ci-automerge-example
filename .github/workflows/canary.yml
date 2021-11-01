@@ -20,7 +20,7 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com
         git clone https://github.com/ayortanli/github-ci-automerge-example
-        github-ci-automerge-example
+        cd github-ci-automerge-example
         git fetch
         git checkout main
         git checkout canary
