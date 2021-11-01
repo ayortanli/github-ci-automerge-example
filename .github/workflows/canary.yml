@@ -22,7 +22,7 @@ jobs:
         git config --global user.name github-actions
         git config --global user.email github-actions@github.com
         echo "change path"
-        cd github-ci-automerge-example
+        cd /home/runner/work/github-ci-automerge-example/github-ci-automerge-example
         echo "fetch"
         git fetch
         echo "checkout main"
