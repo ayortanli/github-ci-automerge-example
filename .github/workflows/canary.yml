@@ -13,8 +13,18 @@ jobs:
     name: Build after checkout 
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Main Code
+    - name: Checkout Main Branch
       uses: actions/checkout@v2
+      with:
+        ref: main
+    - name: Checkout Canary Branch and Merge Master to it
+      uses: actions/checkout@v2
+      with:
+        ref: canary
+      run: |
+        git merge main
+        git commit -m "automerging main to canary"
+        git push
     - name: Build
       run: echo 'Building... blah blah...'
       shell: bash      
