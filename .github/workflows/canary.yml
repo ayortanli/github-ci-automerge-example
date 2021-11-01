@@ -16,14 +16,12 @@ jobs:
     - name: Checkout Main Branch
       uses: actions/checkout@v2
       with:
-        ref: main
-    - name: Checkout Canary Branch
-      uses: actions/checkout@v2
-      with:
-        ref: canary
-    - name: Merge Master to Canary
+        ref: main    
+    - name: Checkout Canary and Merge Master to it
       run: |
-        git merge origin/main
+        git branch --list --remote origin/canary
+        git checkout --progress --force -B canary refs/remotes/origin/canary
+        git merge main
         git commit -m "automerging main to canary"
         git push
     - name: Build
