@@ -27,8 +27,12 @@ jobs:
         git fetch
         echo "checkout main"
         git checkout main
+        echo "pull main"
+        git pull
         echo "checkout canary"
-        git checkout canary
+        git checkout canary        
+        echo "pull canary"
+        git pull
         echo "merge main"
         git merge main
         echo "commit"
