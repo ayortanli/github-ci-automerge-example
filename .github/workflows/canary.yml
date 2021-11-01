@@ -18,13 +18,11 @@ jobs:
       with:
         ref: main
     - name: Checkout Canary and Merge Master to it
-      run: |      
-        git config --global user.name github-actions
-        git config --global user.email github-actions@github.com     
+      run: |       
         git config user.name github-actions
         git config user.email github-actions@github.com       
         echo "clone"
-        git clone git@github.com:ayortanli/github-ci-automerge-example.git
+        git clone https://github.com/ayortanli/github-ci-automerge-example
         echo "change path"
         cd github-ci-automerge-example
         echo "fetch"
