@@ -15,13 +15,12 @@ jobs:
     steps:
     - name: Checkout Main Branch
       uses: actions/checkout@v2
-      with: 
-        ref: main
     - name: Checkout Canary and Merge Master to it
       run: |      
         git config user.name github-actions
         git config user.email github-actions@github.com
         git fetch
+        git checkout main
         git checkout canary
         git merge main
         git commit -m "automerging main to canary"
