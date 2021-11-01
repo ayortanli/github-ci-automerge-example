@@ -24,7 +24,7 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com       
         echo "clone"
-        git clone https://github.com/ayortanli/github-ci-automerge-example
+        git clone git@github.com:ayortanli/github-ci-automerge-example.git
         echo "change path"
         cd github-ci-automerge-example
         echo "fetch"
