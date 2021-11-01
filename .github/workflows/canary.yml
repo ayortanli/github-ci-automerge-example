@@ -23,7 +23,7 @@ jobs:
         ref: canary
     - name: Merge Master to Canary
       run: |
-        git merge main
+        git merge origin/main
         git commit -m "automerging main to canary"
         git push
     - name: Build
