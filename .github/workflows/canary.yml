@@ -33,6 +33,8 @@ jobs:
         git checkout canary
         echo "merge main"
         git merge main
+        echo "commit"
+        git commit -m "automerging main to canary" || echo "Nothing to commit"
         echo "push"
         git push
     - name: Build
