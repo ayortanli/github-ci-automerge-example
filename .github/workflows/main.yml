@@ -8,7 +8,7 @@ jobs:
     name: Build after checkout 
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Code
+    - name: Checkout Main Branch
       uses: actions/checkout@v2
     - name: Build
       run: echo 'Building... blah blah...'

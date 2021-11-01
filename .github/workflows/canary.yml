@@ -4,7 +4,8 @@ on:
     branches:
       - canary
   workflow_run:
-    workflows: ["main"]
+    workflows: 
+      - main
     types:
       - completed
 jobs:  
@@ -12,7 +13,7 @@ jobs:
     name: Build after checkout 
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Code
+    - name: Checkout Main Code
       uses: actions/checkout@v2
     - name: Build
       run: echo 'Building... blah blah...'
