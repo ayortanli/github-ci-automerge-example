@@ -15,17 +15,25 @@ jobs:
     steps:
     - name: Checkout Main Branch
       uses: actions/checkout@v2
+      with:
+        ref: main
     - name: Checkout Canary and Merge Master to it
       run: |      
         git config --global user.name github-actions
         git config --global user.email github-actions@github.com
-        git clone https://github.com/ayortanli/github-ci-automerge-example
+        echo "change path"
         cd github-ci-automerge-example
+        echo "fetch"
         git fetch
+        echo "checkout main"
         git checkout main
+        echo "checkout canary"
         git checkout canary
+        echo "merge main"
         git merge main
+        echo "commit"
         git commit -m "automerging main to canary"
+        echo "push"
         git push
     - name: Build
       run: echo 'Building... blah blah...'
