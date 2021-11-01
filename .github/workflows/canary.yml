@@ -15,8 +15,8 @@ jobs:
     steps:
     - name: Checkout Main Branch
       uses: actions/checkout@v2
-        with: 
-          ref: canary
+      with: 
+        ref: canary
     - name: Checkout Canary and Merge Master to it
       run: |      
         git config user.name github-actions
