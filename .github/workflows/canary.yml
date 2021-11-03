@@ -10,33 +10,21 @@ on:
       - completed
 jobs:  
   build:
-    name: Build after checkout 
+    name: Build after checkout & merge
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Main Branch
       uses: actions/checkout@v2
       with:
-        fetch-depth: 0
+        fetch-depth: 10
         ref: main
     - name: Checkout Canary and Merge Master to it
       run: |       
         git config user.name github-actions
         git config user.email github-actions@github.com       
-        echo $GITHUB_WORKSPACE
-        git fetch
-        echo "checkout main"
-        git checkout main
-        echo "pull main"
-        git pull
-        echo "checkout canary"
-        git checkout canary        
-        echo "pull canary"
-        git pull
-        echo "merge main"
+        git checkout canary 
         git merge main
-        echo "commit"
         git commit -m "automerging main to canary" || echo "Nothing to commit"
-        echo "push"
         git push
     - name: Build
       run: echo 'Building... blah blah...'
