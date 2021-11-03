@@ -16,7 +16,7 @@ jobs:
     - name: Checkout Main Branch
       uses: actions/checkout@v2
       with:
-        fetch-depth: 10
+        fetch-depth: 0
         ref: main
     - name: Checkout Canary and Merge Master to it
       run: |       
