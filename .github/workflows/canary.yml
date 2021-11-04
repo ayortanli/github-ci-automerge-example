@@ -12,13 +12,13 @@ jobs:
   pre_cond: 
     name: Precondition to run CI
     runs-on: ubuntu-latest
-    if: ${{ (github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success') || github.ref == 'refs/heads/canary'}}
+    if: ${{ (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') || github.event_name == 'push'}}
     steps:
     - name: Print trigger info
       run: |       
-        echo "triggering branch - ${{ github.ref }}"        
-        echo "triggering ci result - ${{ github.event.workflow_run.conclusion }}"         
         echo "event name - ${{ github.event_name }}" 
+        echo "triggering branch - ${{ github.ref }}"        
+        echo "triggering event result - ${{ github.event.workflow_run.conclusion }}"         
   build:
     name: Build after checkout & merge
     runs-on: ubuntu-latest
