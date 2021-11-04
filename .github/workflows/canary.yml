@@ -12,6 +12,7 @@ jobs:
   pre_cond: 
     name: Precondition to run CI
     runs-on: ubuntu-latest
+    if: ${{ (github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success') || github.ref == 'refs/heads/canary'}}
     steps:
     - name: Print trigger info
       run: |
@@ -21,6 +22,7 @@ jobs:
   build:
     name: Build after checkout & merge
     runs-on: ubuntu-latest
+    needs: pre_cond
     steps:
     - name: Checkout Main Branch
       uses: actions/checkout@v2
