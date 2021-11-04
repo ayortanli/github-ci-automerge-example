@@ -15,10 +15,9 @@ jobs:
     if: ${{ (github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success') || github.ref == 'refs/heads/canary'}}
     steps:
     - name: Print trigger info
-      run: |
-        echo "action - ${{ github.event.action }}"        
-        echo "repository - ${{ github.event.repository.name }}"
-        echo "branch - ${{ github.ref }}"
+      run: |       
+        echo "triggering branch - ${{ github.ref }}"        
+        echo "triggering ci result - ${{ github.event.workflow_run.conclusion }}" 
   build:
     name: Build after checkout & merge
     runs-on: ubuntu-latest
