@@ -17,7 +17,8 @@ jobs:
     - name: Print trigger info
       run: |       
         echo "triggering branch - ${{ github.ref }}"        
-        echo "triggering ci result - ${{ github.event.workflow_run.conclusion }}" 
+        echo "triggering ci result - ${{ github.event.workflow_run.conclusion }}"         
+        echo "event name - ${{ github.event_name }}" 
   build:
     name: Build after checkout & merge
     runs-on: ubuntu-latest
