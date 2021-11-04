@@ -9,6 +9,14 @@ on:
     types:
       - completed
 jobs:  
+  pre_cond: 
+    name: Precondition to run CI
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print trigger info
+      run: |
+        echo "action - ${{ github.event.action }}"        
+        echo "repository - ${{ github.event.repository.name }}"
   build:
     name: Build after checkout & merge
     runs-on: ubuntu-latest
