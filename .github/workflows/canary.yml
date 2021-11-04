@@ -17,6 +17,7 @@ jobs:
       run: |
         echo "action - ${{ github.event.action }}"        
         echo "repository - ${{ github.event.repository.name }}"
+        echo "branch - ${{ github.ref }}"
   build:
     name: Build after checkout & merge
     runs-on: ubuntu-latest
