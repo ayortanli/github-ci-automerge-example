@@ -2,7 +2,7 @@ name: canary
 on:
   push:
     branches:
-      - canary
+      - canary 
   workflow_run:
     workflows: 
       - main
